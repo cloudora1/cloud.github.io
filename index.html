@@ -6,21 +6,23 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Welcome to My Projects</h1>
+  <div class="container">
+    <h1>Welcome to My Projects</h1>
 
-  
-  <h2>Other Projects</h2>
-  <ul id="custom-projects">
-    <li><a href="https://notepadd.vercel.app" target="_blank">Notepad App</a> - Hosted on Vercel</li>
-    
-  </ul>
+    <h2>Other Projects</h2>
+    <ul id="custom-projects">
+      <li>
+        <a href="https://notepadd.vercel.app" target="_blank">Notepad App</a>
+        <span>Hosted on Vercel</span>
+      </li>
+    </ul>
 
-  
-  <h2>All My GitHub Projects</h2>
-  <ul id="repos-list"></ul>
+    <h2>All My GitHub Projects</h2>
+    <ul id="repos-list"></ul>
+  </div>
 
   <script>
-    const username = "cloudora1"; 
+    const username = "cloudora1";
 
     fetch(`https://api.github.com/users/${username}/repos?sort=updated`)
       .then(response => response.json())
@@ -29,11 +31,15 @@
         repos.forEach(repo => {
           if (!repo.fork) {
             const li = document.createElement("li");
-            li.innerHTML = `<a href="${repo.html_url}" target="_blank">${repo.name}</a> - ${repo.description || "No description"}`;
+            li.innerHTML = `
+              <a href="${repo.html_url}" target="_blank">${repo.name}</a>
+              <span>${repo.description || "No description"}</span>
+            `;
             list.appendChild(li);
           }
         });
       });
   </script>
 </body>
+
 </html>
