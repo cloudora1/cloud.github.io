@@ -5,15 +5,15 @@ body {
   padding: 20px;
   background: #f9f9f9;
 }
-h1 {
+h1, h2 {
   text-align: center;
 }
 ul {
-  list-style-type: none;
+  list-style: none;
   padding: 0;
 }
 li {
-  margin: 10px 0;
+  margin: 8px 0;
   padding: 10px;
   background: white;
   border: 1px solid #ddd;
